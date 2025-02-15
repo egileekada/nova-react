@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Nova Watch Party",
+  "version": "1.0.0",
+  "description": "Watch Netflix together with friends",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://*.netflix.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "css": ["content.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": [
+      "inject/media-controller.js",
+      "icons/*"
+    ],
+    "matches": ["*://*.netflix.com/*"]
+  }],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
