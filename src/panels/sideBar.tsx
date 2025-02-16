@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HeaderMenu } from "../components ";
+import { HeaderMenu } from "../components";
 import { MainArea } from "../tabPanels";
 
 

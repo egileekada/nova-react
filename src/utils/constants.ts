@@ -43,8 +43,8 @@ export const STYLES = {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #5A20D5;
     border: none;

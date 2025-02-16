@@ -1,8 +1,14 @@
-
+import { CgSmileMouthOpen } from "react-icons/cg";
+import { IoSend } from "react-icons/io5";
+import EmojiPicker from 'emoji-picker-react';
+import { useState } from "react";
+import { IoIosClose } from "react-icons/io";
 
 export default function ConversationTab() {
 
     const data = ["sender", "self", "sender", "self", "sender", "self", "sender", "self", "sender", "self"]
+    const [value, setValue] = useState("")
+    const [open, setOpen] = useState(false)
 
     return (
         <div className=" w-full h-full flex flex-col gap-2 text-white " >
@@ -12,7 +18,7 @@ export default function ConversationTab() {
                         {data?.map((item, index) => {
                             if (item === "sender") {
                                 return (
-                                    <div key={index} className=" flex max-w-[70%] w-fit flex-col  " >
+                                    <div key={index} className=" flex min-w-[30%] max-w-[70%] w-fit flex-col  " >
                                         <p className=" !text-sm font-bold text-right mr-2 " >user1</p>
                                         <div className=" flex w-full gap-2 " >
                                             <div className=" w-fit " >
@@ -26,14 +32,14 @@ export default function ConversationTab() {
                                 )
                             } else {
                                 return (
-                                    <div key={index} className=" flex max-w-[70%] w-fit flex-col ml-auto  " >
+                                    <div key={index} className=" flex min-w-[30%] max-w-[70%] w-fit flex-col ml-auto  " >
                                         <p className=" !text-sm font-bold text-left ml-2 " >user1</p>
                                         <div className=" flex w-full flex-row-reverse gap-2 " >
                                             <div className=" w-fit " >
                                                 <div className=" w-[40px] h-[40px] rounded-full bg-blue-700 " />
                                             </div>
                                             <div className=" w-full py-[10px] px-3 h-fit rounded-[18px] bg-[#5A21D5] rounded-bl-[4px] " >
-                                                <p className=" !text-sm " >text</p>
+                                                <p className=" !text-sm " >text text text text</p>
                                             </div>
                                         </div>
                                     </div>
@@ -43,8 +49,25 @@ export default function ConversationTab() {
                     </div>
                 </div>
             </div>
-            <div className=" w-full h-fit " >
-                <input className=" w-full h-[56px] border !text-sm border-[#98a2b3] rounded-xl outline-none px-3 bg-[#263340] text-white " placeholder="Send A Message" />
+            <div className=" w-full h-fit flex items-center gap-3 " >
+                <div className=" relative h-[50px] w-full " >
+                    <input value={value} onChange={(e) => setValue(e.target.value)} className=" w-full h-[50px] border !text-sm border-[#98a2b3] rounded-lg outline-none px-4 pr-[53px] bg-[#263340] text-white " placeholder="Send A Message" />
+                    <div role="button" onClick={() => setOpen((prev)=> !prev)} className=" w-[50px] flex justify-center items-center h-[50px] absolute right-0 top-0  " >
+                        {open ? (
+                            <IoIosClose size={"30px"} />
+                        ): (
+                            <CgSmileMouthOpen size={"30px"} />
+                        )}
+                    </div>
+                    {open && (
+                        <div className=" absolute bottom-[52px] right-0 " >
+                            <EmojiPicker width={"300px"} onEmojiClick={(e) => setValue(prev => prev + e.emoji)} />
+                        </div>
+                    )}
+                </div>
+                <div role="button" >
+                    <IoSend size={"20px"} />
+                </div>
             </div>
         </div>
     )

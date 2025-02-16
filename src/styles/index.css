@@ -1,34 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+ 
 
-/* Custom styles */
-@layer components {
-  .nova-floating-button {
-    @apply fixed bottom-5 right-5 z-50 w-12 h-12 rounded-full bg-primary border-none cursor-pointer flex items-center justify-center p-0 shadow-lg transition-all duration-300;
-  }
-
-  .nova-party-sidebar {
-    @apply fixed right-0 top-0 w-[30%] h-screen bg-background text-white z-50 flex flex-col border-l border-secondary;
-  }
-
-  .sidebar-tabs {
-    @apply flex p-2.5 border-b border-secondary;
-  }
-
-  .tab {
-    @apply px-4 py-2 bg-transparent border-none text-text-secondary cursor-pointer transition-colors duration-300;
-  }
-
-  .tab.active {
-    @apply text-white border-b-2 border-primary;
-  }
-
-  .chat-container {
-    @apply flex flex-col h-full;
-  }
-
-  .message {
-    @apply flex mb-2.5 items-start;
-  }
-} 
+.extension-wrapper[data-extension="your-extension-name"] * {
+  font-size: unset !important;
+}

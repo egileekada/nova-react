@@ -1,5 +1,5 @@
 import React from 'react';
-import { ErrorBoundary } from './components /ErrorBoundary/ErrorBoundary';
+import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import { NovaWatchParty } from './content/content';
 
 interface AppProps {}

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ConversationsTab } from "../components "
+import { ConversationsTab, FriendsTab } from "../components"
 
 export default function ChatPanel() {
 
@@ -13,6 +13,9 @@ export default function ChatPanel() {
             </div>
             {!tab && (
                 <ConversationsTab />
+            )}
+            {tab && (
+                <FriendsTab />
             )}
         </div>
     )
