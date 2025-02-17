@@ -1,8 +1,0 @@
-/* Prevent Netflix from changing font size */
-body {
-    font-size: 16px !important; /* Set your desired font size */
-}
-
-* {
-    font-size: inherit !important; /* Inherit font size from body */
-} 

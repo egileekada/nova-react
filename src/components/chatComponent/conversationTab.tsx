@@ -3,6 +3,7 @@ import { IoSend } from "react-icons/io5";
 import EmojiPicker from 'emoji-picker-react';
 import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
+import { Flex, Input, Text } from "@chakra-ui/react";
 
 export default function ConversationTab() {
 
@@ -10,65 +11,65 @@ export default function ConversationTab() {
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
 
-    return (
-        <div className=" w-full h-full flex flex-col gap-2 text-white " >
-            <div className=" w-full flex flex-col h-full relative "  >
-                <div className=" flex flex-col overflow-y-auto absolute top-0 w-full bottom-0 px-2 " >
-                    <div className=" h-fit flex flex-col w-full gap-3 " >
+    return ( 
+        <Flex w={"full"} h={"full"} flexDir={"column"} gap={"2"} color={"white"} >
+            <Flex w={"full"} h={"full"} flexDir={"column"} gap={"2"} pos={"relative"} >
+                <Flex w={"full"} flexDir={"column"} overflowY={"auto"} pos={"absolute"} top={"0px"} bottom={"0px"} px={"2"} >
+                    <Flex h={"fit-content"} flexDir={"column"} w={"full"} py={"3"} gap={"3"} >
                         {data?.map((item, index) => {
                             if (item === "sender") {
-                                return (
-                                    <div key={index} className=" flex min-w-[30%] max-w-[70%] w-fit flex-col  " >
-                                        <p className=" !text-sm font-bold text-right mr-2 " >user1</p>
-                                        <div className=" flex w-full gap-2 " >
-                                            <div className=" w-fit " >
-                                                <div className=" w-[40px] h-[40px] rounded-full bg-blue-700 " />
-                                            </div>
-                                            <div className=" w-full py-[10px] px-3 h-fit rounded-[18px] bg-[#263340] rounded-bl-[4px] " >
-                                                <p className=" !text-sm " >text</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                return ( 
+                                    <Flex key={index} minW={"20%"} maxW={"70%"} w={"fit-content"} flexDirection={"column"} gap={"1"} >
+                                        <Text fontSize={"12px"} fontWeight={"bold"} textAlign={"right"} mr={"1"} >user1</Text>
+                                        <Flex w={"full"} gap={"2"} >
+                                            <Flex w={"fit-content"} >
+                                                <Flex w={"40px"} h={"40px"} bgColor={"red.600"} rounded={"full"} />
+                                            </Flex>
+                                            <Flex w={"full"} py={"10px"} px={"4"} h={"fit-content"} rounded={"12px"} bgColor={"#263340"} roundedBottomLeft={"4px"} >
+                                                <Text fontSize={"14px"} >text</Text>
+                                            </Flex>
+                                        </Flex>
+                                    </Flex>
                                 )
                             } else {
-                                return (
-                                    <div key={index} className=" flex min-w-[30%] max-w-[70%] w-fit flex-col ml-auto  " >
-                                        <p className=" !text-sm font-bold text-left ml-2 " >user1</p>
-                                        <div className=" flex w-full flex-row-reverse gap-2 " >
-                                            <div className=" w-fit " >
-                                                <div className=" w-[40px] h-[40px] rounded-full bg-blue-700 " />
-                                            </div>
-                                            <div className=" w-full py-[10px] px-3 h-fit rounded-[18px] bg-[#5A21D5] rounded-bl-[4px] " >
-                                                <p className=" !text-sm " >text text text text</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                return ( 
+                                    <Flex key={index} minW={"20%"} maxW={"70%"} w={"fit-content"} flexDirection={"column"} gap={"1"} ml={"auto"} >
+                                        <Text fontSize={"12px"} fontWeight={"bold"} textAlign={"left"} mr={"1"} >user1</Text>
+                                        <Flex w={"full"} flexDir={"row-reverse"} gap={"2"} >
+                                            <Flex w={"fit-content"} >
+                                                <Flex w={"40px"} h={"40px"} bgColor={"red.600"} rounded={"full"} />
+                                            </Flex>
+                                            <Flex w={"full"} py={"10px"} px={"4"} h={"fit-content"} rounded={"12px"} bgColor={"#5A21D5"} roundedBottomRight={"4px"} >
+                                                <Text fontSize={"14px"} >text text</Text>
+                                            </Flex>
+                                        </Flex>
+                                    </Flex>
                                 )
                             }
                         })}
-                    </div>
-                </div>
-            </div>
-            <div className=" w-full h-fit flex items-center gap-3 " >
-                <div className=" relative h-[50px] w-full " >
-                    <input value={value} onChange={(e) => setValue(e.target.value)} className=" w-full h-[50px] border !text-sm border-[#98a2b3] rounded-lg outline-none px-4 pr-[53px] bg-[#263340] text-white " placeholder="Send A Message" />
-                    <div role="button" onClick={() => setOpen((prev)=> !prev)} className=" w-[50px] flex justify-center items-center h-[50px] absolute right-0 top-0  " >
+                    </Flex>
+                </Flex>
+            </Flex> 
+            <Flex w={"full"} h={"fit-content"} alignItems={"center"} gap={"3"} >
+                <Flex pos={"relative"} h={"50px"} w={"full"} >
+                    <Input value={value} onChange={(e) => setValue(e.target.value)} w={"full"} h={"50px"} borderWidth={"1px"} fontSize={"14px"} borderColor={"#98a2b3"} rounded={"lg"} outline={"none"} px={"4"} pr={"53px"} bgColor={"#263340"} color={"white"} placeholder="Send A Message" />
+                    <Flex as={"button"} onClick={() => setOpen((prev) => !prev)} w={"50px"} h={"50px"} justifyContent={"center"} alignItems={"center"} position={"absolute"} right={"0px"} top={"0px"} >
                         {open ? (
                             <IoIosClose size={"30px"} />
-                        ): (
+                        ) : (
                             <CgSmileMouthOpen size={"30px"} />
                         )}
-                    </div>
+                    </Flex>
                     {open && (
-                        <div className=" absolute bottom-[52px] right-0 " >
+                        <Flex pos={"absolute"} bottom={"52px"} right={"0px"} >
                             <EmojiPicker width={"300px"} onEmojiClick={(e) => setValue(prev => prev + e.emoji)} />
-                        </div>
+                        </Flex>
                     )}
-                </div>
-                <div role="button" >
+                </Flex>
+                {/* <div role="button" >
                     <IoSend size={"20px"} />
-                </div>
-            </div>
-        </div>
+                </div> */}
+            </Flex>
+        </Flex>
     )
 }

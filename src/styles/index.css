@@ -1,8 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
- 
-
-.extension-wrapper[data-extension="your-extension-name"] * {
-  font-size: unset !important;
-}

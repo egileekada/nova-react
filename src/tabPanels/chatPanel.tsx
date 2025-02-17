@@ -1,22 +1,23 @@
 import { useState } from "react"
 import { ConversationsTab, FriendsTab } from "../components"
+import { Button, Flex } from "@chakra-ui/react"
 
 export default function ChatPanel() {
 
     const [tab, setTab] = useState(false)
 
     return ( 
-        <div className=" w-full h-full flex flex-col gap-4 " >
-            <div className=" w-full bg-[#10161C] flex p-[8px] rounded-lg " >
-                 <button onClick={()=> setTab(false)} className={` h-[40px] w-full rounded-lg text-white text-sm ${!tab ? "bg-[#27303a]" : "" } `} >Conversations</button>
-                 <button onClick={()=> setTab(true)} className={` h-[40px] w-full rounded-lg text-white text-sm ${tab ? "bg-[#27303a]" : "" } `} >Friends</button>
-            </div>
+        <Flex w={"full"} h={"full"} flexDir={"column"} gap={"4"} px={"3"} pt={"3"} >
+            <Flex w={"full"} bgColor={"#10161C"} p={"8px"} rounded={"lg"}>
+                <Button onClick={() => setTab(false)} h={"40px"} w={"50%"} rounded={"lg"} color={"white"} fontSize={"14px"} bgColor={!tab ? "#27303a" : "#10161C"} outline={"none"} >Conversations</Button>
+                <Button onClick={() => setTab(true)} h={"40px"} w={"50%"} rounded={"lg"} color={"white"} fontSize={"14px"} bgColor={tab ? "#27303a" : "#10161C"} outline={"none"} >Friends</Button>
+            </Flex>
             {!tab && (
                 <ConversationsTab />
             )}
             {tab && (
                 <FriendsTab />
             )}
-        </div>
+        </Flex>
     )
 }

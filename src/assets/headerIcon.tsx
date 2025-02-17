@@ -1,12 +1,13 @@
 
-export default function RenderIcon(type: string) {
+export default function RenderIcon(type: string, active: string) {
   switch (type) {
     case 'share':
       return (
-        <svg className="w-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <svg width={"24px"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path
             d="m3,15.5s2-3.5,8-3.5v4s6-6,6-6l-6-6v4c-8,0-8,7.5-8,7.5Z"
-            className="stroke-current fill-current"
+            fill={type === active ? "white" : "#D1D5DB"}
+            stroke={type === active ? "white" : "#D1D5DB"}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
@@ -15,7 +16,8 @@ export default function RenderIcon(type: string) {
       );
     case 'talk':
       return (
-        <svg className="w-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <svg width={"24px"}
+          fill={type === "talk" ? "white" : "#D1D5DB"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path
             d="m10,2C5.589,2,2,5.589,2,10c0,1.44.388,2.789,1.057,3.958l-1.018,3.055c-.09.27-.02.567.181.768.143.143.334.22.53.22.08,0,.16-.013.237-.039l3.055-1.018c1.169.669,2.518,1.057,3.958,1.057,4.411,0,8-3.589,8-8S14.411,2,10,2Z"
             className="fill-current"
@@ -24,7 +26,9 @@ export default function RenderIcon(type: string) {
       );
     case 'hub':
       return (
-        <svg className="w-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <svg width={"24px"}
+          fill={type === active ? "white" : "#D1D5DB"}
+          stroke={type === active ? "white" : "#D1D5DB"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <g className="stroke-current fill-current">
             <path
               d="m17,8c0,3.866-3.134,7-7,7s-7-3.134-7-7"
@@ -59,7 +63,8 @@ export default function RenderIcon(type: string) {
       );
     case 'video':
       return (
-        <svg className="w-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <svg width={"24px"}
+          fill={type === active ? "white" : "#D1D5DB"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <g className="fill-current">
             <polygon
               points="17.5 6 17.5 14 14 10 14 10 17.5 6"
@@ -73,8 +78,9 @@ export default function RenderIcon(type: string) {
       );
     case 'settings':
       return (
-        <svg className="w-[24px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <g className="fill-current">
+        <svg width={"24px"}
+          fill={type === active ? "white" : "#D1D5DB"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g>
             <path d="m12.578,11h4.322c-.463-2.282-2.48-4-4.899-4-.553,0-1.075.111-1.572.277l2.149,3.723Z" />
             <path d="m8.695,15.725l2.151-3.725-2.151-3.725c-1.032.916-1.695,2.237-1.695,3.725s.663,2.809,1.695,3.725Z" />
             <path d="m12.578,13l-2.149,3.723c.497.166,1.019.277,1.572.277,2.419,0,4.436-1.718,4.899-4h-4.322Z" />

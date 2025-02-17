@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { HeaderMenu } from "../components";
 import { MainArea } from "../tabPanels";
+import { Flex } from "@chakra-ui/react";
 
 
-export default function SideBar() { 
+export default function SideBar() {
 
     const [activeOption, setActiveOption] = useState<string>('talk');
 
-    return (
-        <div className=" max-w-[400px] h-screen bg-[#0a1018] w-full flex flex-col p-5 gap-4 " >
+    return ( 
+        <Flex maxW={"full"} h={"100vh"} bgColor={"#0a1018"} w={"full"} flexDir={"column"} p={"5"} gap={"5"} >
             <HeaderMenu activeOption={activeOption} setActiveOption={setActiveOption} />
             <MainArea activeOption={activeOption} />
-        </div>
+        </Flex>
     )
 }

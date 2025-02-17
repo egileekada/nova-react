@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChatState } from '@/types/chat';
 import { SELECTORS } from '@/utils/constants';
 import SideBar from './sideBar';
+import { Box } from '@chakra-ui/react';
+import { Provider } from '@/components/ui/provider';
 
 interface SidebarProps {
     onClose?: () => void;
@@ -76,18 +78,13 @@ export const SidebarController: React.FC<SidebarProps> = ({ onClose }) => {
                 videoPlayer.style.float = 'none';
             }
         };
-    }, [handleUrlChange, urlObserverRef]);
+    }, [handleUrlChange]);
 
     return (
-        <div
-            ref={sidebarRef}
-            className="fixed right-0 top-0 bottom-0 w-[30%] h-screen text-white box-border overflow-y-auto z-50 extension-wrapper"
-            data-extension="your-extension-name"
-        >
-            <SideBar />
-            {/* <div className="fixed bottom-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-md text-sm">
-          You are the host
-        </div>  */}
-        </div>
+        <Provider>
+            <Box ref={sidebarRef} w={"30%"} position={"fixed"} top={"0"} right={"0"} bottom={"0"} h={"100vh"} color={"white"} overflowY={"auto"} zIndex={"50"} >
+                <SideBar />
+            </Box>
+        </Provider>
     );
 };
