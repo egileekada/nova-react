@@ -2,8 +2,8 @@ import { Button, Flex, Input, Text } from '@chakra-ui/react'
 
 export default function ShareTab() {
     return (
-        <Flex w={"full"} h={"full"} flexDir={"column"} gap={"2"} color={"white"} pt={"3"} >
-            <Flex w={"full"} flexDir={"column"} >
+        <Flex w={"full"} h={"full"} flexDir={"column"} gap={"4"} color={"white"} pt={"3"} >
+            <Flex w={"full"} flexDir={"column"} gap={"1"} >
                 <Text fontSize={"11px"} fontWeight={"medium"} >Invite friends to watch "Black and Blue"</Text>
                 <Text fontSize={"9px"} >Share this link with your friends:</Text>
             </Flex>
